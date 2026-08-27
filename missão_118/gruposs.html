@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidades - GameConnect</title>
+    <link rel="stylesheet" href="css/grupos.css">
+</head>
+<body>
+    <div class="tela">
+        <header class="topo">
+            <div class="barra-superior">
+                <div class="logo">🎮 GameConnect</div>
+
+                <!-- Botão exibido apenas em telas menores -->
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                    type="button"
+                    aria-label="Abrir menu de navegação"
+                    aria-expanded="false"
+                    aria-controls="menuPrincipal"
+                >
+                    ☰ Menu
+                </button>
+            </div>
+
+            <!-- O JavaScript adiciona/remove a classe .aberto no menu mobile -->
+            <nav class="menu" id="menuPrincipal">
+                <a href="index1.html">Início</a>
+                <a href="#">Games</a>
+                <a href="#">Chat</a>
+                <a href="#">Perguntas</a>
+            </nav>
+
+            <div class="search">
+                <input type="text" placeholder="Pesquisar grupos" aria-label="Pesquisar grupos">
+                <span aria-hidden="true">🔍</span>
+            </div>
+        </header>
+
+        <main class="conteudo">
+            <article class="card azul touch-card">
+                <img src="imagens/image 6.png" alt="Grupo Computador">
+                <div class="info">
+                    <h2>Grupo Computador</h2>
+                    <p>Mexendo com computação, trocas de peças e setups.</p>
+                    <button type="button" onclick="entrarGrupo('Grupo Computador')">Entrar</button>
+                </div>
+            </article>
+
+            <article class="card verde touch-card">
+                <img src="imagens/image 4.png" alt="Minecraft">
+                <div class="info">
+                    <h2>Minecraft</h2>
+                    <p>Focados em farms e sobrevivência, anarquismo.</p>
+                    <button type="button" onclick="entrarGrupo('Minecraft')">Entrar</button>
+                </div>
+            </article>
+        </main>
+
+        <div class="pagination" aria-label="Paginação dos grupos">
+            <button type="button">← Anterior</button>
+            <button type="button" class="active">1</button>
+            <button type="button">2</button>
+            <button type="button">3</button>
+            <button type="button">...</button>
+            <button type="button">67</button>
+            <button type="button">68</button>
+            <button type="button">Próximo →</button>
+        </div>
+    </div>
+
+    <script src="Js/script.js"></script>
+</body>
+</html>

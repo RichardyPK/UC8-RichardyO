@@ -1,0 +1,32 @@
+html, body {
+    height: 100%; /* Faz a página ocupar toda a tela */
+    margin: 0;
+}
+
+.container-central {
+    text-align: center;
+    padding: 100px;
+}
+
+.container-central {    
+background-image: linear-gradient(#005f96, #4a0e68f1);
+    margin: 0;
+    height: 80vh;   
+}
+
+.container-central img{
+    max-width: 80%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 0 25px #e478ffc9;
+    transition: transform 0.3s;
+}
+
+.cubo-animado{
+    transition: transform 0.5s ease, filter 0.s ease;
+}
+
+.cubo-animado:hover{
+    transform: translateY(-8px) scale(1.02);
+    filter:drop-shadow(0 12px rgba(133, 14, 14, 0.938)
+}

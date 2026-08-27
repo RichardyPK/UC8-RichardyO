@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - GameConnect</title>
+    <link rel="stylesheet" href="css/cadastro.css">
+</head>
+<body>
+<div class="container">
+    <div class="form-box">
+        <h1>Cadastro</h1>
+        <div class="data">
+            <input type="text" placeholder="DD" maxlength="2" inputmode="numeric">
+            <input type="text" placeholder="MM" maxlength="2" inputmode="numeric">
+            <input type="text" placeholder="YYYY" maxlength="4" inputmode="numeric">
+        </div>
+        <form>
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" placeholder="Nome">
+            <label for="sobrenome">Sobrenome</label>
+            <input type="text" id="sobrenome" placeholder="Sobrenome">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="E-mail">
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" placeholder="Senha">
+            <button type="button" onclick="cadastrar()">Concluir</button>
+        </form>
+    </div>
+</div>
+<script src="Js/script.js"></script>
+</body>
+</html>

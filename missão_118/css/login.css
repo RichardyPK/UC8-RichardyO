@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(#005f96, #4a0e68f1);
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.container {
+    width: min(1000px, 100%);
+    min-height: 80vh;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.login-box {
+    width: min(450px, 100%);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #8c52ff;
+}
+
+form {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.opcoes {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.opcoes .lembrar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0;
+}
+
+.opcoes input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+}
+
+.login-box button {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 20px;
+    padding: 12px;
+    border: 0;
+    border-radius: 5px;
+    background: #222;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.2s ease;
+    touch-action: manipulation;
+}
+
+.login-box button:hover {
+    background: #444;
+}
+
+.cadastro-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.cadastro-link a {
+    color: #6a4cff;
+    text-decoration: none;
+}
+
+/* Ajustes para tablet e smartphone */
+@media (max-width: 600px) {
+    body {
+        padding: 0;
+        align-items: stretch;
+    }
+
+    .container {
+        width: 100%;
+        min-height: 100vh;
+        padding: 24px 14px;
+        border-radius: 0;
+    }
+
+    .login-box {
+        width: 100%;
+    }
+
+    form {
+        padding: 20px 16px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+        padding: 12px;
+    }
+}

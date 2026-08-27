@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* FUNDO */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#005f96, #4a0e68f1);
+}
+
+/* TELA PRINCIPAL */
+.tela {
+    width: 95%;
+    max-width: 1100px;
+}
+
+/* TOPO */
+.topo {
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    border-radius: 10px 10px 0 0;
+    color: white;
+}
+
+/* MENU */
+.menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* SEARCH */
+.search {
+    background: white;
+    padding: 6px 10px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.search input {
+    border: none;
+    outline: none;
+}
+
+/* CONTEÚDO PRINCIPAL (FUNDO PRETO MAIOR) */
+.conteudo {
+    background: black;
+    padding: 25px;
+    min-height: 650px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+
+    align-items: flex-start; /* joga tudo para esquerda */
+}
+
+/* CARDS DOS GRUPOS */
+.card {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    align-items: center;
+
+    width: 65%;          /* deixa os cards mais para esquerda */
+    margin-right: auto;  /* gruda no lado esquerdo */
+}
+
+/* IMAGEM DOS CARDS */
+.card img {
+    width: 110px;
+    border-radius: 8px;
+}
+
+/* CORES DOS CARDS */
+.azul {
+    background: linear-gradient(90deg, #2b3cff, #6a8bff);
+}
+
+.verde {
+    background: linear-gradient(90deg, #1f7a3a, #4cd97b);
+}
+
+/* BOTÕES */
+button {
+    margin-top: 8px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* PAGINAÇÃO */
+.pagination {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+}
+
+.pagination button {
+    background: white;
+}
+
+.pagination .active {
+    background: black;
+    color: white;
+    border: 1px solid white;
+}

@@ -1,0 +1,222 @@
+/* Reset básico para evitar diferenças de tamanho entre elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(#005f96, #4a0e68f1);
+    padding: 18px;
+    padding-bottom: 105px;
+    overflow-x: hidden;
+}
+
+.container-central {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 18px;
+}
+
+.container-central img {
+    display: block;
+    width: min(370px, 45vw);
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.painel-jogadores {
+    width: min(900px, 100%);
+    min-height: 500px;
+    margin: 0 auto;
+    background: #000;
+    border-radius: 10px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    box-shadow: 0 0 10px #fff;
+}
+
+.card {
+    width: 100%;
+    min-width: 0;
+    min-height: 180px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Funciona com o mouse e também com os eventos touchstart/touchend do JS */
+.card:hover,
+.card.mouse-ativo,
+.card.toque-ativo {
+    transform: scale(1.02);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.65);
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-width: 0;
+}
+
+.perfil img {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.perfil h3 {
+    font-size: 24px;
+    color: #444;
+    overflow-wrap: anywhere;
+}
+
+.perfil p {
+    color: gray;
+    margin-top: 5px;
+    overflow-wrap: anywhere;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: fixed;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    z-index: 10;
+}
+
+.botoes button {
+    width: min(250px, 45vw);
+    min-height: 56px;
+    border: 0;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    touch-action: manipulation;
+}
+
+.login {
+    background: #a3eed1;
+    color: #000;
+    box-shadow: 0 0 8px #fff;
+}
+
+.register {
+    background: #0a0d10;
+    color: #fff;
+    box-shadow: 0 0 8px #fff;
+}
+
+.botoes button:hover {
+    transform: scale(1.03);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    body {
+        padding: 12px;
+        padding-bottom: 90px;
+    }
+
+    .container-central img {
+        width: min(320px, 75vw);
+    }
+
+    .painel-jogadores {
+        min-height: 0;
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .card {
+        min-height: 135px;
+        padding: 15px;
+    }
+
+    .perfil {
+        gap: 12px;
+    }
+
+    .perfil img {
+        width: 52px;
+        height: 52px;
+    }
+
+    .perfil h3 {
+        font-size: 20px;
+    }
+
+    .botoes {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        gap: 10px;
+    }
+
+    .botoes button {
+        width: 50%;
+        min-height: 54px;
+        font-size: 18px;
+    }
+}
+
+/* Smartphone: conteúdo passa para uma única coluna */
+@media (max-width: 560px) {
+    body {
+        padding: 10px;
+        padding-bottom: 82px;
+    }
+
+    .container-central {
+        margin-bottom: 8px;
+    }
+
+    .container-central img {
+        width: min(270px, 82vw);
+    }
+
+    .painel-jogadores {
+        grid-template-columns: 1fr;
+        padding: 12px;
+    }
+
+    .card {
+        min-height: 100px;
+        padding: 14px;
+    }
+
+    .perfil h3 {
+        font-size: 18px;
+    }
+
+    .perfil p {
+        font-size: 13px;
+    }
+
+    .botoes button {
+        min-height: 50px;
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,130 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e8f4ff, #ffffff);
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222;
+}
+
+/* CABEÇALHO */
+
+header {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    font-family: 'Waltograph', cursive;
+    font-size: 55px;
+    color: #1769aa;
+    margin-bottom: 10px;
+}
+
+#contador {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* CARDS */
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    padding: 0 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+}
+
+.card h2 {
+    font-family: 'Waltograph', cursive;
+    padding: 15px;
+    text-align: center;
+    font-size: 22px;
+}
+
+/* BOTÃO */
+
+.controles {
+    text-align: center;
+    padding: 10px 20px 40px;
+}
+
+#btnCarregar {
+    border: none;
+    border-radius: 10px;
+    padding: 14px 30px;
+    background: #1769aa;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#btnCarregar:hover {
+    background: #0d4f82;
+    transform: scale(1.05);
+}
+
+#pagina {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 42px;
+    }
+
+    #contador {
+        font-size: 16px;
+    }
+
+    .container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+        padding: 0 15px;
+    }
+
+    .card img {
+        height: 180px;
+    }
+
+    .card h2 {
+        font-size: 16px;
+    }
+
+    #btnCarregar {
+        width: 90%;
+    }
+}
