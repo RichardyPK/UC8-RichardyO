@@ -3,13 +3,13 @@ const input = document.getElementById("input-busca");
 const botao = document.getElementById("btn-busca");
 const resultado = document.getElementById("container-resultado");
 
-// Função que faz a busca do Digimon
+// Função para buscar o Digimon
 async function buscarDigimon() {
 
-    // Pega o nome que foi digitado
+    // Pega o nome digitado
     const nome = input.value.trim();
 
-    // Verifica se o campo está vazio
+    // Verifica se o usuário digitou alguma coisa
     if (nome === "") {
         resultado.innerHTML = "<p>Digite o nome de um Digimon.</p>";
         return;
@@ -17,45 +17,58 @@ async function buscarDigimon() {
 
     try {
 
-        // Faz a busca na API
+        // Procura o Digimon pelo nome
         const resposta = await fetch(
-            "https://digimon-api.com/api/v1/digimon/" + nome
+            "https://digi-api.com/api/v1/digimon?name=" + encodeURIComponent(nome)
         );
 
-        // Verifica se a API encontrou o Digimon
-        if (resposta.status === 404) {
+        // Verifica se a API deu algum erro
+        if (!resposta.ok) {
+            throw new Error("Erro na API");
+        }
 
-            // Se for 404, significa que o Digimon não existe
+        // Transforma a resposta em JSON
+        const dados = await resposta.json();
+
+        // Verifica se encontrou algum Digimon
+        if (!dados.content || dados.content.length === 0) {
+
+            // Mostra uma mensagem se não encontrou
             resultado.innerHTML =
                 "<p>Este Digimon não foi encontrado.</p>";
 
             return;
         }
 
-        // Se acontecer outro erro
-        if (!resposta.ok) {
-            resultado.innerHTML =
-                "<p>Ocorreu um erro na busca.</p>";
+        // Pega o primeiro resultado
+        const digimon = dados.content[0];
 
-            return;
+        // Busca os dados completos usando o ID
+        const respostaCompleta = await fetch(
+            "https://digi-api.com/api/v1/digimon/" + digimon.id
+        );
+
+        // Verifica se deu erro
+        if (!respostaCompleta.ok) {
+            throw new Error("Erro ao buscar os dados");
         }
 
-        // Transforma a resposta em JSON
-        const dados = await resposta.json();
+        // Pega os dados completos
+        const dadosCompletos = await respostaCompleta.json();
 
-        // Pega o nome do Digimon
-        const nomeDigimon = dados.name;
+        // Pega o nome
+        const nomeDigimon = dadosCompletos.name;
 
-        // Pega o nível do Digimon
-        const nivel = dados.level;
+        // Pega a imagem
+        const imagem = dadosCompletos.images[0].href;
 
-        // Pega a imagem do Digimon
-        const imagem = dados.images[0].href;
+        // Pega o nível
+        const nivel = dadosCompletos.levels[0].level;
 
-        // Cria o card do Digimon
+        // Mostra o card na tela
         resultado.innerHTML = `
             <div class="card-digimon">
-                
+
                 <img src="${imagem}" alt="${nomeDigimon}">
 
                 <h2>${nomeDigimon}</h2>
@@ -65,9 +78,11 @@ async function buscarDigimon() {
             </div>
         `;
 
-        // Verifica o nível para mudar a borda do card
+        // Pega o card que acabou de ser criado
         const card = document.querySelector(".card-digimon");
 
+
+        // Muda a cor da borda de acordo com o nível
         if (nivel === "In Training") {
             card.classList.add("level-in-training");
         }
@@ -91,21 +106,18 @@ async function buscarDigimon() {
     } catch (erro) {
 
         /*
-        O catch serve para capturar erros.
-
-        Por exemplo, se a internet estiver com problema
-        ou a API não responder, essa mensagem será mostrada.
+        O catch captura algum erro que aconteceu
+        durante a busca na API.
         */
-
         resultado.innerHTML =
             "<p>Não foi possível realizar a busca.</p>";
     }
 }
 
-// Quando clicar no botão, faz a busca
+// Quando clicar no botão, chama a função
 botao.addEventListener("click", buscarDigimon);
 
-// Também permite pesquisar apertando Enter
+// Permite pesquisar apertando Enter
 input.addEventListener("keyup", function(event) {
 
     if (event.key === "Enter") {
