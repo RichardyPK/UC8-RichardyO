@@ -1,0 +1,181 @@
+/*CONFIGURAÇÕES GERAIS*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    padding: 1rem;
+    background: #101522;
+    color: white;
+}
+
+/*CABEÇALHO*/
+
+header {
+    text-align: center;
+    margin: 1rem auto 2rem;
+    max-width: 700px;
+}
+
+header h1 {
+    font-size: clamp(1.8rem, 7vw, 3rem);
+    margin-bottom: 0.7rem;
+}
+
+header p {
+    color: #cbd5e1;
+    font-size: 1rem;
+}
+
+/*ÁREA DE BUSCA*/
+
+.area-busca {
+    display: flex;
+    gap: 0.6rem;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+#input-busca {
+    flex: 1;
+    min-width: 0;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    outline: none;
+}
+
+#btn-busca {
+    padding: 0.9rem 1.2rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: #3498db;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#btn-busca:hover {
+    background: #2980b9;
+}
+
+/*CONTAINER DOS RESULTADOS*/
+
+#container-resultado {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+
+    /* Grid responsivo */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+/*CARD DO DIGIMON*/
+
+.card-digimon {
+    background: #1e293b;
+    border-radius: 1rem;
+    padding: 1.2rem;
+    text-align: center;
+
+    /* Transição para a mudança visual do nível */
+    transition: transform 0.2s;
+}
+
+.card-digimon:hover {
+    transform: translateY(-5px);
+}
+
+.card-digimon img {
+    max-width: 100%;
+    width: 220px;
+    height: auto;
+    display: block;
+    margin: 0 auto 1rem;
+}
+
+.card-digimon h2 {
+    margin-bottom: 0.8rem;
+    text-transform: capitalize;
+}
+
+/*SELO DE NÍVEL*/
+
+.level {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-weight: bold;
+}
+
+/*CORES DOS NÍVEIS*/
+
+.level-in-training {
+    border: 3px solid #2ecc71;
+    box-shadow: 0 0 10px #2ecc71;
+}
+
+.level-rookie {
+    border: 3px solid #3498db;
+    box-shadow: 0 0 10px #3498db;
+}
+
+.level-champion {
+    border: 3px solid #9b59b6;
+    box-shadow: 0 0 10px #9b59b6;
+}
+
+.level-ultimate {
+    border: 3px solid #e67e22;
+    box-shadow: 0 0 10px #e67e22;
+}
+
+.level-mega {
+    border: 3px solid #f1c40f;
+    box-shadow: 0 0 10px #f1c40f;
+}
+
+/*MENSAGENS*/
+
+.mensagem {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 1rem;
+    background: #1e293b;
+    border-radius: 0.7rem;
+    color: #f8fafc;
+}
+
+/*RESPONSIVIDADE*/
+
+@media (max-width: 400px) {
+
+    body {
+        padding: 0.7rem;
+    }
+
+    .area-busca {
+        flex-direction: column;
+    }
+
+    #btn-busca {
+        width: 100%;
+    }
+
+    #container-resultado {
+        grid-template-columns: 1fr;
+    }
+
+    .card-digimon img {
+        width: 180px;
+    }
+}
